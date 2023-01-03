@@ -1,0 +1,83 @@
+:root {
+    --bright-color: #edddd4;
+    --color-green: #197278;
+    --font-color: #283d3b;
+
+    --title-font: 'Quicksand', sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+
+    background-color: var(--bright-color);
+
+    font-family: var(--title-font);
+    color: var(--font-color);
+}
+
+ul {
+    list-style-type: none;
+    padding: 0 1.5rem 0 1rem;
+    line-height: 3rem;
+}
+
+a {
+    text-decoration: none;
+}
+
+i {
+    margin-right: 1rem;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+
+    margin-bottom: 1rem;
+    height: 4.5rem;
+}
+
+#hamburger-menu {
+    margin: 1rem 0 0 2.9rem;
+    padding: .8rem 1.2rem;
+    border-radius: 10%;
+
+    color: var(--bright-color);
+    font-size: 1.5rem;
+
+    background-color: var(--color-green);
+
+    cursor: pointer;
+    z-index: 10;
+}
+
+nav {
+    position: absolute;
+    top: 0;
+
+    width: 9.5rem;
+    height: 100%;
+
+    transform: translateX(-10rem);
+
+    padding-top: 3.8rem;
+
+    background-color: var(--color-green);
+
+    transition: transform 350ms ease-in-out;
+}
+
+.menu-active {
+    transform: translateX(0);
+}
+
+nav a {
+    color: var(--bright-color);
+    font-weight: 500;
+}
+
+main h1 {
+    font-size: 1.8rem;
+    margin: 0 1rem;
+}
