@@ -37,11 +37,11 @@ header {
     justify-content: space-between;
 
     margin-bottom: 1rem;
-    height: 4.5rem;
+    padding: 1rem 2.9rem;
 }
 
-#hamburger-menu {
-    margin: 1rem 0 0 2.9rem;
+#hamburger-menu,
+#cart-icon {
     padding: .8rem 1.2rem;
     border-radius: 10%;
 
@@ -114,7 +114,7 @@ main h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    max-width: 25rem;
+    width: 20rem;
     height: 25rem;
 
     margin: 0 auto;

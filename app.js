@@ -10,6 +10,7 @@ hamburgerMenu.addEventListener("click", function () {
 /* - - - - Insert products - - - - */
 const products = [
     {
+        id: 14,
         name: "Málna",
         description: "Kézzel szedett egészség",
         picture: "img/pexels-pixabay-326179.jpg",
@@ -17,6 +18,7 @@ const products = [
         inStock: true,
     },
     {
+        id: 27,
         name: "Áfonya",
         description: "Kézzel szedett egészség",
         picture: "img/pexels-veeterzy-70862.jpg",
@@ -24,6 +26,7 @@ const products = [
         inStock: true,
     },
     {
+        id: 31,
         name: "Szeder",
         description: "Kézzel szedett egészség",
         picture: "img/pexels-pixabay-257834.jpg",
@@ -45,8 +48,33 @@ products.forEach(product => {
                 <img src="${product.picture}" alt="">
             </div>
             <h3>${product.price} Ft</h3>
-            <a href="#">Kosárba</a>
+            <a id=${product.id} href="#" class="add-to-cart">Kosárba</a>
         </div>
     `
+})
 
+/* - - - - Cart handle - - - - */
+
+const cart = {}
+
+const addToCartButtons = document.querySelectorAll(".add-to-cart")
+
+/* for (let i = 0; i < addToCartButtons.length; i++) {
+    addToCartButtons[i].addEventListener("click", function (event) {
+        if (cart[event.target.id] === undefined) {
+            cart[event.target.id] = 1
+        } else {
+            cart[event.target.id]++
+        }
+    })
+} */
+
+addToCartButtons.forEach(addToCartButton => {
+    addToCartButton.addEventListener("click", event => {
+        if (cart[event.target.id] === undefined) {
+            cart[event.target.id] = 1
+        } else {
+            cart[event.target.id]++
+        }
+    })
 })
