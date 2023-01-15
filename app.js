@@ -2,10 +2,17 @@
 const hamburgerMenu = document.getElementById("hamburger-menu")
 const nav = document.getElementById("nav")
 
-hamburgerMenu.addEventListener("click", function () {
-    nav.classList.toggle("menu-active")
-    hamburgerMenu.classList.toggle("fi-x")
-})
+const hamburgerMenuToggle = (e) => {
+    if (e.target.classList == "fi-align-justify") {
+        nav.classList.add("menu-active")
+        hamburgerMenu.classList.add("fi-x")
+    } else {
+        nav.classList.remove("menu-active")
+        hamburgerMenu.classList.remove("fi-x")
+    }
+}
+window.addEventListener("click", hamburgerMenuToggle)
+
 
 /* - - - - Insert products - - - - */
 const products = [
@@ -48,7 +55,8 @@ products.forEach(product => {
                 <img src="${product.picture}" alt="">
             </div>
             <h3>${product.price} Ft</h3>
-            <a id=${product.id} href="#" class="add-to-cart">Kosárba</a>
+            <a id=${product.id} 
+            class="add-to-cart">Kosárba</a>
         </div>
     `
 })
@@ -68,7 +76,7 @@ const addToCartButtons = document.querySelectorAll(".add-to-cart")
         }
     })
 } */
-
+/* - - - - Cart item counter - - - - */
 addToCartButtons.forEach(addToCartButton => {
     addToCartButton.addEventListener("click", event => {
         if (cart[event.target.id] === undefined) {
@@ -78,3 +86,29 @@ addToCartButtons.forEach(addToCartButton => {
         }
     })
 })
+
+/* - - - - Cart items display - - - - */
+const cartIcon = document.getElementById("cart-icon")
+const cartContainer = document.querySelector(".cart-container")
+
+cartIcon.addEventListener("click", () => {
+
+    for (const item in cart) {
+        console.log(item, cart[item])
+        console.log(products.find(product => product.id === item * 1).name, cart[item])
+    }
+})
+
+/* - - - - Cart button toggle - - - - */
+const cartContainerToggler = (e) => {
+    console.log(e.target)
+    if (e.target.classList == "fi-shopping-cart") {
+        cartContainer.classList.add("cart-container-active")
+        cartIcon.classList.add("fi-x")
+
+    } else {
+        cartContainer.classList.remove("cart-container-active")
+        cartIcon.classList.remove("fi-x")
+    }
+}
+window.addEventListener("click", cartContainerToggler)
